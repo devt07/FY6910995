@@ -54,34 +54,6 @@
 
 <body>
 
- <!-- Placeholder for total word count -->
-<p id="totalWordCount"></p>
-<hr>
-<script>
-  // Function to calculate and display word count for a specified section
-  function displayWordCount(airfoil, references) {
-    // Get the text content from the specified section
-    const text = document.getElementById(airfoil).textContent;
-    // Split text into words based on spaces and filter out any empty strings
-    const wordArray = text.trim().split(/\s+/);
-    // Count the words
-    const wordCount = wordArray.length;
-    // Return the word count for summing purposes
-    return wordCount;
-  }
-  // Function to calculate and display total word count from selected sections
-  function displayTotalWordCount() {
-    // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction_InText");
-    const AnalysisCount = displayWordCount("Analysis_InText");
-    // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
-    // Display the total word count
-    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-  }
-  // Run the function for specific sections and display total count when the page loads
-  window.onload = displayTotalWordCount;
-</script>
 
 
 <!-- TITLE -->
@@ -111,64 +83,52 @@
 <p>
 
 
-Rotor blade design is fundamental to helicopter performance, influencing lift generation, maneuverability, fuel efficiency, noise levels, and overall operational capability. The aerodynamic and structural choices embedded in blade geometry and construction—ranging from airfoil selection and aspect ratio to tip configuration and material composition—determine how effectively a rotor system can convert engine power into useful thrust. This article explores the critical components of rotor blade design, including airfoil shape, aspect ratios, blade tip designs, materials, and key aerodynamic challenges. It highlights how each design element contributes to helicopter efficiency and safety, while also addressing the engineering trade-offs inherent in rotating-wing flight
-</p>
+Rotor blade design plays a crucial role in helicopter performance for example, in lift generation, fuel consumption, and noise levels. The aerodynamic and structural choices in blade design determine how well the rotor system can convert available power from the engine into effective thrust. This article explores the critical components of rotor blade design: airfoil shape, aspect ratios, blade tip designs, and materials. It also explains how each design component contributes to helicopter efficiency and safety.
 
 <hr>
 
 <h2 id="airfoil">Airfoil Shape</h2>
 <p>
-The airfoil is the curved shape of the blade’s cross-section. It creates the pressure difference needed for lift.  
-<br><br>
-<b>Thicker airfoils</b> provide strength and good lift at lower speeds.  
-<br>
-<b>Thinner airfoils</b> reduce drag and work better at high speeds.  
-<br>
-<b>Symmetrical airfoils</b> have the same shape on top and bottom, making helicopters easier to control.  
-<br><br>
-Choosing the right airfoil helps balance lift, drag, and stability.
+The airfoil design is central to how rotor blades generate lift. Unlike fixed-wing aircrafts, helicopter blades operate in rapidly changing wind conditions because one side of the rotor disc encounters advancing airflow while the opposite side experiences retreating airflow. Hence, the airfoil must deliver consistent performance in different circumstances.
+
+Early rotor systems often utilized symmetrical airfoils due to their stable outcome across a wide range of wind conditions. Modern asymmetric airfoils can be utilized in helicopter blades to increase lift-to-drag ratios and reduce power consumption. In modern blades, the airfoil at the root is typically thicker and structurally stronger, supporting the highest loads. Toward the tip, the airfoil becomes thinner to reduce drag and manage compressibility effects encountered at high rotational speeds. The right airfoil shape needs to be designed, balancing the amount of lift and drag it will produce.
+
 </p>
 
 <hr>
 
 <h2 id="aspect">Aspect Ratio</h2>
 <p>
-Aspect ratio is the relationship between blade length and width.  
-<br><br>
-<b>High aspect ratio (long and narrow)</b> blades reduce drag and improve hovering efficiency.  
-<br>
-However, longer blades bend more easily, need stronger materials, and their tips may approach the speed of sound. This creates shock waves and vibration. Engineers must balance aerodynamic efficiency with safety.
+
+Aspect Ratio refers to the ratio of the blade length to its average chord and it strongly influences aerodynamic efficiency. Longer narrow blades (higher aspect ratios) will normally have a superior lift to drag performance because of reduced drag. This is beneficial in improving fuel efficiency.
+
+However, the high-aspect-ratio blades can introduce structural challenges. Longer blades experience greater bending loads and are more likely to be affected by vibration. Designers must therefore reinforce blades without adding excessive weight which would increase drag and as a result decrease the overall efficiency.
+
+The usage of the helicopter is another factor that helicopter manufacturers need to take into consideration. Lower aspect ratios may be beneficial for compact helicopters to keep the rotor diameter small for precise manoeuvres, especially for military purposes; larger utility or transport helicopters can use higher aspect ratios for improved lift capacity.
+
 </p>
 
 <hr>
 
 <h2 id="tip">Blade Tip Design</h2>
 <p>
-The blade tip moves the fastest and affects noise and drag. Designers use several tip shapes:
-<ul>
-    <li><b>Swept tips</b> reduce compressibility effects.</li>
-    <li><b>Tapered tips</b> lower drag and noise.</li>
-    <li><b>Drooped tips</b> reduce vibration.</li>
-    <li><b>Winglet-style tips</b> improve airflow control.</li>
-</ul>
-These tip designs can improve performance without changing the rest of the blade.
+The design of the blade tip is vital in reducing drag and noise from the helicopter. The tips of rotor blades have the highest rotational speeds and are more likely to get compressed. Various tip designs exist to address these issues.
+
+Swept tips which are common in modern rotorcraft delay shockwave formation and reduce compressibility drag at high speeds. The sweeping of the blade tip backward changes the surface area so that compression would be more spread apart, hence improving efficiency and reducing vibration.
+
+The tapered tips gradually reduce chord length toward the blade’s end. This reduces induced drag and can contribute to lower noise levels.
+
+Anhedral or curved tips are used to help with distributing the lift across the blade and have an objective of reducing the intensity of the tip vortex, which is a contributor to the helicopter noise.
+
+Merging these features will enable designers to address several aerodynamic principles simultaneously for improved overall rotor efficiency.
+
 </p>
 
 <hr>
 
 <h2 id="materials">Materials</h2>
 <p>
-Older blades were made from wood or metal. Modern rotor blades use <b>composite materials</b> such as carbon fibre and Kevlar.  
-<br><br>
-Benefits include:
-<ul>
-    <li>Lighter weight</li>
-    <li>Higher strength</li>
-    <li>Resistance to corrosion</li>
-    <li>Less vibration</li>
-    <li>Longer lifespan</li>
-</ul>
-Composite blades make helicopters safer and easier to maintain.
+Rotors must be able to withstand centrifugal forces, aerodynamic loads, and environmental exposure while being as lightweight as possible. This is so that the inertia is as low as possible. Historically, rotor blades were constructed from aluminium or steel, but these materials were heavy and as a result, a compromise was needed to be made so that the strength of the blade and inertia acting upon them balance out. Composite materials are utilised in the making of modern blades: Fiberglass, carbon fibre, and Kevlar. These have several advantages compared to aluminium and steel. They have high strength-to-weight ratios, resistance to corrosion, durability, and flexibility in shaping.
 </p>
 
 <hr>
