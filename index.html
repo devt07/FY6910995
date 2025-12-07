@@ -222,3 +222,20 @@ Managing these challenges is essential for safe and efficient flight.
 
 </body>
 </html
+    
+<button onclick="countWords()">Count Words</button>
+<p id="result"></p>
+
+<script>
+function countWords() {
+    let text = document.getElementById("content").innerText;
+
+    let words = text.split(/\s+/).filter(Boolean);
+
+    document.getElementById("result").innerText =
+        "Word Count: " + words.length;
+}
+</script>
+
+</body>
+</html>
