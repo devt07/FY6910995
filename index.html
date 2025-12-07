@@ -53,7 +53,56 @@
 </head>
 
 <body>
+    
+div id="word-count" style="margin-top: 20px; font-weight: bold;"></div>
 
+<script>
+function countWordsExcludingSections() {
+
+    // SECTION HEADINGS TO EXCLUDE
+    const excludedHeadings = [intro]
+                                      
+
+    // Get all text in the page
+    let text = document.body.innerText;
+
+    // Split into lines
+    const lines = text.split("\n");
+
+    let counting = true;
+    let wordCount = 0;
+
+    for (let line of lines) {
+        const trimmed = line.trim();
+
+        // Stop counting when we hit an excluded heading
+        if (excludedHeadings.includes(trimmed)) {
+            counting = false;
+            continue;
+        }
+
+        // Detect when to resume counting:
+        // ANY <h2> heading EXCEPT the excluded ones
+        if (/^[A-Z][A-Za-z0-9 ]+$/.test(trimmed) && !excludedHeadings.includes(trimmed)) {
+            counting = true;
+        }
+
+        // Count words if allowed
+        if (counting) {
+            const words = trimmed.split(/\s+/).filter(Boolean);
+            wordCount += words.length;
+        }
+    }
+
+    document.getElementById("word-count").innerText =
+        "Word Count (excluding Title + Abstract): " + wordCount;
+}
+
+// Run automatically when page loads
+window.onload = function () {
+    countWordsExcludingSections();
+};
+</script>
 
 
 <!-- TITLE -->
