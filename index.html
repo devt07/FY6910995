@@ -49,60 +49,46 @@
 <head>
     <head>
         <img src="WebBanner2023.png" alt = "Banner" width="1200" height="250">
+
+<p id="totalWordCount"></p>
+<hr>
+<script>
+  // Function to calculate word count for a specified section
+  function displayWordCount(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return 0; // Return 0 if section does not exist
+    const text = section.textContent;
+    const wordArray = text.trim().split(/\s+/).filter(Boolean); // remove empty strings
+    return wordArray.length;
+  }
+
+  // Function to calculate total word count for selected sections
+  function displayTotalWordCount() {
+    // ONLY include sections you want counted
+    const AirfoilCount = displayWordCount("airfoil");
+    const AspectCount = displayWordCount("aspect");
+    const TipCount = displayWordCount("tip");
+    const MaterialsCount = displayWordCount("materials");
+    const TwistCount = displayWordCount("twist");
+    const ChallengesCount = displayWordCount("challenges");
+
+    // Sum all included sections
+    const totalWordCount = AirfoilCount + AspectCount + TipCount + MaterialsCount + TwistCount + ChallengesCount;
+
+    // Display result
+    document.getElementById("totalWordCount").innerText = `Total word count (excluding Abstract and References): ${totalWordCount}`;
+  }
+
+  // Run when page loads
+  window.onload = displayTotalWordCount;
+</script>
+
+        
     <title>Rotor Blade Design in Helicopter Performance</title>
 </head>
 
 <body>
     
-div id="word-count" style="margin-top: 20px; font-weight: bold;"></div>
-
-<script>
-function countWordsExcludingSections() {
-
-    // SECTION HEADINGS TO EXCLUDE
-    const excludedHeadings = [intro]
-                                      
-
-    // Get all text in the page
-    let text = document.body.innerText;
-
-    // Split into lines
-    const lines = text.split("\n");
-
-    let counting = true;
-    let wordCount = 0;
-
-    for (let line of lines) {
-        const trimmed = line.trim();
-
-        // Stop counting when we hit an excluded heading
-        if (excludedHeadings.includes(trimmed)) {
-            counting = false;
-            continue;
-        }
-
-        // Detect when to resume counting:
-        // ANY <h2> heading EXCEPT the excluded ones
-        if (/^[A-Z][A-Za-z0-9 ]+$/.test(trimmed) && !excludedHeadings.includes(trimmed)) {
-            counting = true;
-        }
-
-        // Count words if allowed
-        if (counting) {
-            const words = trimmed.split(/\s+/).filter(Boolean);
-            wordCount += words.length;
-        }
-    }
-
-    document.getElementById("word-count").innerText =
-        "Word Count (excluding Title + Abstract): " + wordCount;
-}
-
-// Run automatically when page loads
-window.onload = function () {
-    countWordsExcludingSections();
-};
-</script>
 
 
 <!-- TITLE -->
@@ -223,19 +209,3 @@ Managing these challenges is essential for safe and efficient flight.
 </body>
 </html
     
-<button onclick="countWords()">Count Words</button>
-<p id="result"></p>
-
-<script>
-function countWords() {
-    let text = document.getElementById("content").innerText;
-
-    let words = text.split(/\s+/).filter(Boolean);
-
-    document.getElementById("result").innerText =
-        "Word Count: " + words.length;
-}
-</script>
-
-</body>
-</html>
