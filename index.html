@@ -50,45 +50,7 @@
     <head>
         <img src="WebBanner2023.png" alt = "Banner" width="1200" height="250">
 
-<p id="totalWordCount"></p>
-<hr>
-<script>
-  // Function to calculate word count for a specified section
-  function displayWordCount(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (!section) return 0; // Return 0 if section does not exist
-    const text = section.textContent;
-    const wordArray = text.trim().split(/\s+/).filter(Boolean); // remove empty strings
-    return wordArray.length;
-  }
 
-  // Function to calculate total word count for selected sections
-  function displayTotalWordCount() {
-    // ONLY include sections you want counted
-    const AirfoilCount = displayWordCount("airfoil");
-    const AspectCount = displayWordCount("aspect");
-    const TipCount = displayWordCount("tip");
-    const MaterialsCount = displayWordCount("materials");
-    const TwistCount = displayWordCount("twist");
-    const ChallengesCount = displayWordCount("challenges");
-
-    // Sum all included sections
-    const totalWordCount = AirfoilCount + AspectCount + TipCount + MaterialsCount + TwistCount + ChallengesCount;
-
-    // Display result
-    document.getElementById("totalWordCount").innerText = `Total word count (excluding Abstract and References): ${totalWordCount}`;
-  }
-
-  // Run when page loads
-  window.onload = displayTotalWordCount;
-</script>
-
-        
-    
-</head>
-
-<body>
-    
 
 
 <!-- TITLE -->
